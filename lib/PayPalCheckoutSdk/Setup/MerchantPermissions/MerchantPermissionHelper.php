@@ -6,7 +6,7 @@ use PayPalCheckoutSdk\Requests\Token\RefreshTokenRequest;
 use PayPalCheckoutSdk\Setup\PayPalHttpClient;
 use PayPalHttp\HttpRequest;
 
-class MerchantPermissionHelper extends HttpRequest
+class MerchantPermissionHelper
 {
     /**
      * The authorization code is valid for only three minutes.
@@ -29,7 +29,7 @@ class MerchantPermissionHelper extends HttpRequest
                 'https://www.paypal.com/signin/authorize?' :
                 'https://www.sandbox.paypal.com/signin/authorize?';
 
-        return http_build_query(
+        return $baseUrl . http_build_query(
             [
                 'scopes' => [],
                 'response_type' => implode(' ', $scopes),
